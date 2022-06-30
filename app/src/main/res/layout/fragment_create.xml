@@ -5,10 +5,10 @@
     <data>
         <variable
             name="recipe"
-            type=".model.Recipes" />
+            type="com.ubaya.uasfoodrestaurant.model.Recipes" />
         <variable
             name="listener"
-            type=".view.ButtonAddClickListener" />
+            type="com.ubaya.uasfoodrestaurant.view.ButtonAddClickListener" />
         <variable
             name="ingredient"
             type="String" />
@@ -24,7 +24,7 @@
         <variable
             name="drink"
             type="String" />
-        <variable name="radiolistener" type=".view.RadioClickListener" />
+        <variable name="radiolistener" type="com.ubaya.uasfoodrestaurant.view.RadioClickListener" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
-                    android:text="Create Review"
+                    android:text="Create Recipe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

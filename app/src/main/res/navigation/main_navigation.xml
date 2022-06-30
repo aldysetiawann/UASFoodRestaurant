@@ -1,6 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/itemList">
 
+    <fragment
+        android:id="@+id/itemList"
+        android:name="com.ubaya.uasfoodrestaurant.view.RecipeListFragment"
+        android:label="RecipeListFragment" >
+        <action
+            android:id="@+id/actionRecipeDetail"
+            app:destination="@id/recipeDetailFragment" />
+        <action
+            android:id="@+id/actionOptionFragment"
+            app:destination="@id/optionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.RecipeDetailFragment"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" >
+        <action
+            android:id="@+id/actionIngredientList"
+            app:destination="@id/ingredientListFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionPreparationList"
+            app:destination="@id/preparationListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingredientListFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.IngredientListFragment"
+        android:label="fragment_ingredient_list"
+        tools:layout="@layout/fragment_ingredient_list" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemMyRecipes"
+        android:name="com.ubaya.uasfoodrestaurant.view.MyRecipesFragment"
+        android:label="MyRecipesFragment" >
+        <action
+            android:id="@+id/actionRecipeDetail2"
+            app:destination="@id/recipeDetailFragment" />
+        <action
+            android:id="@+id/actionCreatePIFragment"
+            app:destination="@id/createPrepAndIngFragment" />
+        <action
+            android:id="@+id/actionEditFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preparationListFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.PreparationListFragment"
+        android:label="fragment_preparation_list"
+        tools:layout="@layout/fragment_preparation_list" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <dialog
+        android:id="@+id/optionFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.OptionFragment"
+        android:label="fragment_option"
+        tools:layout="@layout/fragment_option" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </dialog>
+    <fragment
+        android:id="@+id/itemDiscover"
+        android:name="com.ubaya.uasfoodrestaurant.view.DiscoverFragment"
+        android:label="DiscoverFragment" >
+        <action
+            android:id="@+id/actionToRecipeDetail"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBag"
+        android:name="id.ac.ubaya.informatika.foodrecipes_160419075.view.BagFragment"
+        android:label="BagFragment" />
+    <fragment
+        android:id="@+id/itemCreateRecipe"
+        android:name="com.ubaya.uasfoodrestaurant.view.CreateFragment"
+        android:label="CreateFragment" >
+        <action
+            android:id="@+id/actionBackToListFragment"
+            app:destination="@id/itemList" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPrepAndIngFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.CreatePrapAndIngFragment.CreatePrepAndIngFragment"
+        android:label="CreatePrepAndIngFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionBackToMyRecipesFragment"
+            app:destination="@id/itemMyRecipes" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.EditFragment"
+        android:label="EditFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionGoBackToMyRecipesFragment"
+            app:destination="@id/itemMyRecipes" />
+    </fragment>
 </navigation>

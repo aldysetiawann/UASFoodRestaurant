@@ -1,60 +1,62 @@
 package com.ubaya.uasfoodrestaurant.view
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.content.Context
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.ProgressBar
+//import androidx.databinding.BindingAdapter
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import com.ubaya.uasfoodrestaurant.R
+import com.ubaya.uasfoodrestaurant.model.MyRecipes
+import com.ubaya.uasfoodrestaurant.model.Recipes
+import com.ubaya.uasfoodrestaurant.util.loadImage
+import java.lang.Exception
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+interface RecipeDetailClickListener {
+    fun onRecipeDetailClick(v: View)
+}
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Interfaces.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Interfaces : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+interface ImageViewClickListener {
+    fun onImageViewClick(v: View)
+}
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+interface ButtonEditClickListener {
+    fun onButtonEditClick(v: View)
+}
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_interfaces, container, false)
-    }
+interface ButtonPIClickListener {
+    fun onButtonPIClick(v: View)
+}
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Interfaces.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Interfaces().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+interface ButtonAddPIClickListener {
+    fun onButtonAddPIClick(v: View)
+}
+
+interface RecipeShareClickListener {
+    fun onRecipeShareClick(v: View)
+}
+
+interface ButtonShareClickListener {
+    fun onButtonShareClick(v: View)
+}
+
+interface ButtonAddClickListener {
+    fun onButtonAddClick(v: View)
+}
+
+interface ButtonSaveChangeClickListener {
+    fun onButtonSaveChangeClick(v: View, obj: Recipes)
+}
+
+interface RadioClickListener {
+    fun onRadioClick(v: View, category:String, obj:Recipes)
+}
+
+interface RadioCheckListener {
+    fun onRadioCheck(v: View, category:String, obj:MyRecipes)
+}
+
+interface TextChangedListener {
+    fun onTextChanged(s: CharSequence)
 }
