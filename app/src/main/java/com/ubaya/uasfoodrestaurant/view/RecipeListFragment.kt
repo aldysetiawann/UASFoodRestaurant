@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_recipe_list.*
 
 class RecipeListFragment : Fragment() {
     private  lateinit var viewModel: ListViewModel
-    private val recipeListAdapter = RecipeListAdapter(arrayListOf())
+    private val recipeListAdapter = RecipesListAdapter.RecipeListAdapter(arrayListOf())
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

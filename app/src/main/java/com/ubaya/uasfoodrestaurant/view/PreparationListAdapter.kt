@@ -9,7 +9,6 @@ import com.ubaya.uasfoodrestaurant.R
 import com.ubaya.uasfoodrestaurant.databinding.MyrecipeListItemBinding
 import com.ubaya.uasfoodrestaurant.databinding.PreparationListItemBinding
 import com.ubaya.uasfoodrestaurant.model.Preparations
-import kotlinx.android.synthetic.main.ingredient_list_item.view.*
 import kotlinx.android.synthetic.main.preparation_list_item.view.*
 
 class PreparationListAdapter(val preparationList:ArrayList<Preparations>): RecyclerView.Adapter<PreparationListAdapter.PreparationViewHolder>() {

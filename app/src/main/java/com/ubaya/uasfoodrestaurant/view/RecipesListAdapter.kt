@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.uasfoodrestaurant.R
 import com.ubaya.uasfoodrestaurant.databinding.FragmentCreateBinding
+import com.ubaya.uasfoodrestaurant.databinding.RecipeListItemBinding
 import com.ubaya.uasfoodrestaurant.model.Recipe
 import com.ubaya.uasfoodrestaurant.model.Recipes
 import com.ubaya.uasfoodrestaurant.util.loadImage

@@ -60,7 +60,7 @@ class Notification(val context:Context) {
         }
 
         val pendingIntent = PendingIntent.getActivity(context,0, intent, 0)
-        val icon = BitmapFactory.decodeResource(context.resources, R.drawable.cookingchef)
+        val icon = BitmapFactory.decodeResource(context.resources, R.drawable.cooking)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.writingchef)
             .setLargeIcon(icon)

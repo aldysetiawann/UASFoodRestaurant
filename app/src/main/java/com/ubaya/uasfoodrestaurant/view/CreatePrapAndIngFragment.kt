@@ -7,19 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.Person.fromBundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.ubaya.uasfoodrestaurant.R
-import com.ubaya.uasfoodrestaurant.databinding.FragmentCreatePrepAndIngBinding
+import com.ubaya.uasfoodrestaurant.databinding.FragmentCreatePrapAndIngBinding
 import com.ubaya.uasfoodrestaurant.model.Ingredients
 import com.ubaya.uasfoodrestaurant.model.Preparations
-import com.ubaya.uasfoodrestaurant.util.NotificationHelper
+import com.ubaya.uasfoodrestaurant.util.Notification
 import com.ubaya.uasfoodrestaurant.viewmodel.DetailRecipeViewModel
 
 class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
     private lateinit var viewModel: DetailRecipeViewModel
-    private lateinit var dataBinding: FragmentCreatePrepAndIngBinding
+    private lateinit var dataBinding: FragmentCreatePrapAndIngBinding
 
     var recipeId = 0
 
@@ -27,7 +28,7 @@ class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_prep_and_ing, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_create_prap_and_ing, container, false)
         return dataBinding.root
     }
 
@@ -41,7 +42,7 @@ class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
         dataBinding.listener = this
 
         if(arguments!=null){
-            recipeId = CreatePrepAndIngFragmentArgs.fromBundle(requireArguments()).id
+//            recipeId = CreatePrepAndIngFragment.fromBundle/
         }
     }
 
@@ -61,7 +62,7 @@ class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
                     ).show()
                 }
                 else {
-                    NotificationHelper(v.context).createNotificationPublic("Recipe Uloaded","A new recipe have been public")
+                    Notification(v.context).createNotificationPublic("Recipe Uloaded","A new recipe have been public")
                     for ((index, value) in result.withIndex()) {
                         viewModel.addIngredient(Ingredients(recipeId, value, result2[index]))
                     }
@@ -71,8 +72,8 @@ class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
                         viewModel.addPreparation(Preparations(recipeId, index+1, value))
                     }
                     viewModel.setPublicRecipe(recipeId)
-                    val action = CreatePrepAndIngFragmentDirections.actionBackToMyRecipesFragment()
-                    Navigation.findNavController(v).navigate(action)
+//                    val action = CreatePrepAndIngFragment.act()
+//                    Navigation.findNavController(v).navigate(action)
                 }
             }
             setNegativeButton("Cancel", null)
