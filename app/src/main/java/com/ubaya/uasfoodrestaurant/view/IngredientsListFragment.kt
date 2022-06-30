@@ -30,9 +30,9 @@ class IngredientListFragment : Fragment() {
 //            var id = IngredientListFragmentArgs.fromBundle(requireArguments()).id
         }
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
-        viewModel.refreshIng(IngredientListFragmentArgs.fromBundle(requireArguments()).id)
+        viewModel.refreshIng(IngredientsListFragmentArgs.fromBundle(requireArguments()).id)
 
-        Log.d("SHOW ID", IngredientListFragmentArgs.fromBundle(requireArguments()).id.toString())
+        Log.d("SHOW ID", IngredientsListFragmentArgs.fromBundle(requireArguments()).id.toString())
 
         recyclerView2.layoutManager = LinearLayoutManager(context)
         recyclerView2.adapter = ingredientListAdapter

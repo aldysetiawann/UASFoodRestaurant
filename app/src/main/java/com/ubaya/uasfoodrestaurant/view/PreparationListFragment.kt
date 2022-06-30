@@ -34,7 +34,7 @@ class PreparationListFragment : Fragment() {
         viewModel.refreshPrep(PreparationListFragmentArgs.fromBundle(requireArguments()).id)
 
 
-        Log.d("SHOW ID", IngredientListFragmentArgs.fromBundle(requireArguments()).id.toString())
+        Log.d("SHOW ID", IngredientsListFragmentArgs.fromBundle(requireArguments()).id.toString())
 
         recView4.layoutManager = LinearLayoutManager(context)
         recView4.adapter = preparationListAdapter
