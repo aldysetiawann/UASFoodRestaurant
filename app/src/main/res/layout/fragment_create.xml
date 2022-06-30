@@ -1,14 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.CreateFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="recipe"
+            type=".model.Recipes" />
+        <variable
+            name="listener"
+            type=".view.ButtonAddClickListener" />
+        <variable
+            name="ingredient"
+            type="String" />
+        <variable
+            name="breakfast"
+            type="String" />
+        <variable
+            name="dessert"
+            type="String" />
+        <variable
+            name="dinner"
+            type="String" />
+        <variable
+            name="drink"
+            type="String" />
+        <variable name="radiolistener" type=".view.RadioClickListener" />
+    </data>
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        >
 
-</FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="70dp"
+                    android:onClick="@{listener::onButtonAddClick}"
+                    android:text="Add Recipe"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroupCategory" />
+
+                <TextView
+                    android:id="@+id/textJudul"
+                    style="@style/TextAppearance.MaterialComponents.Headline2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="Create Recipe"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout6"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:hint="Recipe Name"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textJudul">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtRecipeName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={recipe.name}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout7"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:hint="Link Picture"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtLinkPicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={recipe.poster}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonBreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Breakfast"
+                        android:checked= "@{recipe.category==breakfast?true:false}"
+                        android:onClick="@{(view) -> radiolistener.onRadioClick(view, breakfast, recipe)}"
+                        android:text="Breakfast" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDessert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Dessert"
+                        android:checked="@{recipe.category==dessert?true:false}"
+                        android:onClick="@{(view) -> radiolistener.onRadioClick(view, dessert, recipe)}"
+                        android:text="Dessert" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Dinner"
+                        android:checked="@{recipe.category==dinner?true:false}"
+                        android:onClick="@{(view) -> radiolistener.onRadioClick(view, dinner, recipe)}"
+                        android:text="Dinner" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Drink"
+                        android:checked="@{recipe.category==drink?true:false}"
+                        android:onClick="@{(view) -> radiolistener.onRadioClick(view, drink, recipe)}"
+                        android:text="Drink" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Category"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </FrameLayout>
+</layout>
