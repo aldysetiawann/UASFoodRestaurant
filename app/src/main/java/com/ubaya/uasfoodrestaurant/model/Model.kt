@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Entity
-data class Recipes {
+data class Recipes (
     @ColumnInfo(name = "name")
     var name:String?,
     @ColumnInfo(name = "category")
@@ -18,7 +18,8 @@ data class Recipes {
     var poster:String?,
     @ColumnInfo(name = "public_stat")
     var public_stat:Int?
-    ){
+    )
+    {
         @PrimaryKey(autoGenerate = true)
         var recipe_id:Int = 0
     }
@@ -81,4 +82,3 @@ data class Recipes {
         val jumlah:Int?,
         val gambar:String?
     )
-}
