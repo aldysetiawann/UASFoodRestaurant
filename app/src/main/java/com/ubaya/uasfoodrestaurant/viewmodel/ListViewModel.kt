@@ -39,7 +39,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/recipelist3.php"
+        var url = "https://ubaya.fun/hybrid/160419072/recipelist3.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -84,7 +84,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/discoverrecipe.php"
+        var url = "https://ubaya.fun/hybrid/160419072/discoverrecipe.php"
         var stringRequest = object : StringRequest(
             Request.Method.POST,
             url,
@@ -126,7 +126,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
 //        queue = Volley.newRequestQueue(getApplication())
-//        var url = "https://ubaya.fun/hybrid/160419075/recipelist3.php"
+//        var url = "https://ubaya.fun/hybrid/160419072/recipelist3.php"
 //
 //        val stringRequest = StringRequest(
 //            Request.Method.GET, url,
@@ -169,7 +169,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
 //        queue = Volley.newRequestQueue(getApplication())
-//        var url = "https://ubaya.fun/hybrid/160419075/recipelist3.php"
+//        var url = "https://ubaya.fun/hybrid/160419072/recipelist3.php"
 //
 //        val stringRequest = StringRequest(
 //            Request.Method.GET, url,
@@ -219,7 +219,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         }
 //        return ingredentsLD.value.toString()
         /*queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/listingredient.php"
+        var url = "https://ubaya.fun/hybrid/160419072/listingredient.php"
 
         var stringRequest = object : StringRequest(
             Request.Method.POST,
@@ -256,7 +256,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/listallingredient.php"
+        var url = "https://ubaya.fun/hybrid/160419072/listallingredient.php"
 
         var stringRequest = StringRequest(
             Request.Method.GET,
@@ -309,7 +309,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         }
 
         /*queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/listpreparation.php"
+        var url = "https://ubaya.fun/hybrid/160419072/listpreparation.php"
         var stringRequest = object : StringRequest(
             Request.Method.POST,
             url,
@@ -352,7 +352,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingLD.value = true
 
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/listallpreparation.php"
+        var url = "https://ubaya.fun/hybrid/160419072/listallpreparation.php"
         var stringRequest = StringRequest(
             Request.Method.GET,
             url,

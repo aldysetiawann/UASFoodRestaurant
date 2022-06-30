@@ -46,7 +46,7 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun updateRecipe(name:String, category:String, poster:String, id: Int){
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/updaterecipe.php"
+        var url = "https://ubaya.fun/hybrid/160419072/updaterecipe.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -86,7 +86,7 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun addRecipe(recipe:Recipes) {
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/addrecipe.php"
+        var url = "https://ubaya.fun/hybrid/160419072/addrecipe.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -139,7 +139,7 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun addIngredient(ingredients: Ingredients) {
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/addingredient.php"
+        var url = "https://ubaya.fun/hybrid/160419072/addingredient.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -186,7 +186,7 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun addPreparation(preparations: Preparations) {
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/addpreparation.php"
+        var url = "https://ubaya.fun/hybrid/160419072/addpreparation.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
@@ -227,7 +227,7 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun setPublicRecipe(id: Int) {
         queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419075/publicrecipe.php"
+        var url = "https://ubaya.fun/hybrid/160419072/publicrecipe.php"
 
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
