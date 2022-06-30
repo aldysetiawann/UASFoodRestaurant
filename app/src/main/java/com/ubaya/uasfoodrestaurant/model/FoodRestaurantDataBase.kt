@@ -8,7 +8,7 @@ import com.ubaya.uasfoodrestaurant.util.MIGRATION_1_2
 import com.ubaya.uasfoodrestaurant.util.MIGRATION_2_3
 
 @Database(entities = arrayOf(Recipes::class, MyRecipes::class, RecipesDraft::class, Ingredients::class, Preparations::class), version = 3)
-abstract class FoodRestaurantDataBase {
+abstract class FoodRestaurantDataBase : RoomDatabase(){
     abstract fun recipeDao():FoodRestaurantDao
 
     companion object {
@@ -19,7 +19,7 @@ abstract class FoodRestaurantDataBase {
             Room.databaseBuilder(
                 context.applicationContext,
                 FoodRestaurantDataBase::class.java,
-                "foodrestaurantdb"
+                "foodrecipedb"
             )
                 .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .build()

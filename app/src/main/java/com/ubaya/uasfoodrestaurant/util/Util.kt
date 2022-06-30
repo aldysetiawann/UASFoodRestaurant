@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -22,7 +23,7 @@ import com.ubaya.uasfoodrestaurant.model.FoodRestaurantDao
 import com.ubaya.uasfoodrestaurant.model.FoodRestaurantDataBase
 import java.lang.Exception
 
-val DB_NAME = "foodrestaurantdb"
+val DB_NAME = "FoodRestaurantDataBase"
 
 fun buildDB(context: Context):FoodRestaurantDataBase {
     val db = Room.databaseBuilder(context,
