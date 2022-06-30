@@ -33,9 +33,9 @@
     </fragment>
     <fragment
         android:id="@+id/ingredientListFragment"
-        android:name="com.ubaya.uasfoodrestaurant.view.IngredientListFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.IngredientsListFragment"
         android:label="fragment_ingredient_list"
-        tools:layout="@layout/fragment_ingredient_list" >
+        tools:layout="@layout/fragment_ingredients_list" >
         <argument
             android:name="id"
             app:argType="integer" />
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemBag"
-        android:name="id.ac.ubaya.informatika.foodrecipes_160419075.view.BagFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.BagFragment"
         android:label="BagFragment" />
     <fragment
         android:id="@+id/itemCreateRecipe"
@@ -94,7 +94,7 @@
     </fragment>
     <fragment
         android:id="@+id/createPrepAndIngFragment"
-        android:name="com.ubaya.uasfoodrestaurant.view.CreatePrapAndIngFragment.CreatePrepAndIngFragment"
+        android:name="com.ubaya.uasfoodrestaurant.view.CreatePrepAndIngFragment"
         android:label="CreatePrepAndIngFragment" >
         <argument
             android:name="id"
