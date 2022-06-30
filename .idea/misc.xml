@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/UASFoodRestaurant/app/src/main/res/layout/activity_main.xml" value="0.13858695652173914" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/UASFoodRestaurant/app/src/main/res/layout/fragment_create.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/UASFoodRestaurant/app/src/main/res/layout/fragment_create.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/UASFoodRestaurant/app/src/main/res/layout/fragment_create_prap_and_ing.xml" value="0.13858695652173914" />
       </map>
     </option>
   </component>
