@@ -72,8 +72,6 @@ class CreatePrepAndIngFragment : Fragment(), ButtonAddPIClickListener {
                         viewModel.addPreparation(Preparations(recipeId, index+1, value))
                     }
                     viewModel.setPublicRecipe(recipeId)
-//                    val action = CreatePrepAndIngFragment.act()
-//                    Navigation.findNavController(v).navigate(action)
                 }
             }
             setNegativeButton("Cancel", null)

@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.room.Room
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -96,18 +95,13 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
                 recipeLD.value = result
 
                 launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
                     val db = buildDB(getApplication())
                     db.recipeDao().insertAll(recipe)
                 }
-//                loadingLD.value = false
                 Log.d("showvolley", response.toString())
 
             },
             {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
                 Log.d("showvolley", it.toString())
             }
         ){
@@ -130,8 +124,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun addIngredients(ingredients: List<Ingredients>) {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             db.recipeDao().insertAllIngredients(ingredients)
         }
@@ -148,19 +140,10 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
                 val result = Gson().fromJson<Ingredients>(response, sType )
                 ingredentsLD.value = result
 
-//                launch {
-////            val db = Room.databaseBuilder(getApplication(),
-////                TodoDatabase::class.java, "tododb").build()
-//                    val db = buildDB(getApplication())
-//                    db.recipeDao().insertAllIngredient(ingredients)
-//                }
-//                loadingLD.value = false
                 Log.d("showvolley", response.toString())
 
             },
             {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
                 Log.d("showvolley", it.toString())
             }
         ){
@@ -176,12 +159,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
         stringRequest.tag = TAG
         queue?.add(stringRequest)
-//        launch {
-////            val db = Room.databaseBuilder(getApplication(),
-////                TodoDatabase::class.java, "tododb").build()
-//            val db = buildDB(getApplication())
-//            db.recipeDao().insertAllIngredient(ingredients)
-//        }
     }
 
     fun addPreparation(preparations: Preparations) {
@@ -195,19 +172,10 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
                 val result = Gson().fromJson<Preparations>(response, sType )
                 preparationLD.value = result
 
-//                launch {
-////            val db = Room.databaseBuilder(getApplication(),
-////                TodoDatabase::class.java, "tododb").build()
-//                    val db = buildDB(getApplication())
-//                    db.recipeDao().insertAllPreparation(result)
-//                }
-//                loadingLD.value = false
                 Log.d("showvolley", response.toString())
 
             },
             {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
                 Log.d("showvolley", it.toString())
             }
         ){
@@ -245,8 +213,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
             },
             {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
                 Log.d("showvolley", it.toString())
             }
         ){
@@ -264,8 +230,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun deleteAllIngredients() {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             db.recipeDao().deleteAllIngredients()
         }
@@ -273,8 +237,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun deleteIngredient(id: Int) {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             db.recipeDao().deleteIngredient(id)
         }
@@ -282,8 +244,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun deletePreparation(id: Int) {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             db.recipeDao().deletePreparation(id)
         }
@@ -291,8 +251,6 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun deleteAllMyRecipe(id: Int) {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             db.recipeDao().deleteRecipe(id)
         }
@@ -300,30 +258,10 @@ class DetailRecipeViewModel(application: Application):AndroidViewModel(applicati
 
     fun selectLastRecipe() {
         launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             recipeLastLD.value = db.recipeDao().selectLastRecipe()
         }
     }
-
-    /*fun refreshPrep(id: Int){
-        launch {
-            //            val db = Room.databaseBuilder(getApplication(),
-            //                TodoDatabase::class.java, "tododb").build()
-            val db = buildDB(getApplication())
-            preparationListLD.value = db.recipeDao().selectPreparation(id)
-        }
-    }
-
-    fun refreshIng(id: Int){
-        launch {
-            //            val db = Room.databaseBuilder(getApplication(),
-            //                TodoDatabase::class.java, "tododb").build()
-            val db = buildDB(getApplication())
-            ingredentsListLD.value = db.recipeDao().selectIngredient(id)
-        }
-    }*/
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main

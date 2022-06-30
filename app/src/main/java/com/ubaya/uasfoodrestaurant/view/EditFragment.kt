@@ -24,8 +24,6 @@ class EditFragment : Fragment(),ButtonSaveChangeClickListener, RadioClickListene
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_create, container, false)
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit, container, false)
         return dataBinding.root
     }

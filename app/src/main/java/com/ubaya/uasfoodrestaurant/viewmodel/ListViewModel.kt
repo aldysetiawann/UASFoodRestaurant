@@ -68,15 +68,6 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
 
         stringRequest.tag = TAG
         queue?.add(stringRequest)
-
-//        launch {
-//            val db = Room.databaseBuilder(getApplication(),
-//                FoodRecipeDatabase::class.java, "foodrecipedb").build()
-////            db.recipeDao().insertAll()
-//
-//
-//            loadingLD.value = false
-//        }
     }
 
     fun refresh(cari: String): String{
@@ -92,12 +83,6 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
                 val sType = object : TypeToken<List<Recipes>>() { }.type
                 val result = Gson().fromJson<List<Recipes>>(response, sType )
                 recipessLD.value = result
-
-//                launch {
-//                    val db = Room.databaseBuilder(getApplication(),
-//                        FoodRecipeDatabase::class.java, "foodrecipedb").build()
-//                    recipesLD.value = db.recipeDao().selectAllRecipePublic()
-//                }
 
                 loadingLD.value = false
                 Log.d("showvolley", response.toString())
@@ -125,39 +110,9 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingErrorLD.value = false
         loadingLD.value = true
 
-//        queue = Volley.newRequestQueue(getApplication())
-//        var url = "https://ubaya.fun/hybrid/160419072/recipelist3.php"
-//
-//        val stringRequest = StringRequest(
-//            Request.Method.GET, url,
-//            { response ->
-//                val sType = object : TypeToken<List<Recipes>>() { }.type
-//                val result = Gson().fromJson<List<Recipes>>(response, sType )
-//                recipessLD.value = result
-//
-//                launch {
-//                    val db = Room.databaseBuilder(getApplication(),
-//                        FoodRecipeDatabase::class.java, "foodrecipedb").build()
-//                    db.recipeDao().deleteRecipe(result)
-//                    db.recipeDao().insertAllRecipes(result)
-//                }
-//                loadingLD.value = false
-//                Log.d("showvolley", response.toString())
-//
-//            },
-//            {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
-//                Log.d("showvolley", it.toString())
-//            })
-//
-//        stringRequest.tag = TAG
-//        queue?.add(stringRequest)
-
         launch {
             val db = Room.databaseBuilder(getApplication(),
                FoodRestaurantDataBase::class.java, "foodrecipedb").build()
-//            db.recipeDao().insertAll()
             recipessLD.value = db.recipeDao().selectAllRecipePublic()
 
             loadingLD.value = false
@@ -168,39 +123,9 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingErrorLD.value = false
         loadingLD.value = true
 
-//        queue = Volley.newRequestQueue(getApplication())
-//        var url = "https://ubaya.fun/hybrid/160419072/recipelist3.php"
-//
-//        val stringRequest = StringRequest(
-//            Request.Method.GET, url,
-//            { response ->
-//                val sType = object : TypeToken<List<Recipes>>() { }.type
-//                val result = Gson().fromJson<List<Recipes>>(response, sType )
-//                recipessLD.value = result
-//
-//                launch {
-//                    val db = Room.databaseBuilder(getApplication(),
-//                        FoodRecipeDatabase::class.java, "foodrecipedb").build()
-//                    db.recipeDao().deleteRecipe(result)
-//                    db.recipeDao().insertAllRecipes(result)
-//                }
-//                loadingLD.value = false
-//                Log.d("showvolley", response.toString())
-//
-//            },
-//            {
-//                loadingErrorLD.value = true
-//                loadingLD.value = false
-//                Log.d("showvolley", it.toString())
-//            })
-//
-//        stringRequest.tag = TAG
-//        queue?.add(stringRequest)
-
         launch {
             val db = Room.databaseBuilder(getApplication(),
                 FoodRestaurantDataBase::class.java, "foodrecipedb").build()
-//            db.recipeDao().insertAll()
             recipesDraftLD.value = db.recipeDao().selectAllRecipeUnPublic()
 
             loadingDraftLD.value = false
@@ -211,8 +136,6 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
         loadingErrorLD.value = false
         loadingLD.value = true
         launch {
-            //            val db = Room.databaseBuilder(getApplication(),
-            //                TodoDatabase::class.java, "tododb").build()
             val db = buildDB(getApplication())
             ingredentsLD.value = db.recipeDao().selectIngredient(id)
             loadingLD.value = false
@@ -308,43 +231,7 @@ class ListViewModel(application: Application):AndroidViewModel(application), Cor
             loadingLD.value = false
         }
 
-        /*queue = Volley.newRequestQueue(getApplication())
-        var url = "https://ubaya.fun/hybrid/160419072/listpreparation.php"
-        var stringRequest = object : StringRequest(
-            Request.Method.POST,
-            url,
-            { response ->
-                val sType = object : TypeToken<List<Preparations>>() { }.type
-                val result = Gson().fromJson<List<Preparations>>(response, sType )
-                preparationsLD.value = result
 
-//                launch {
-////            val db = Room.databaseBuilder(getApplication(),
-////                TodoDatabase::class.java, "tododb").build()
-//                    val db = buildDB(getApplication())
-//                    db.recipeDao().insertAllPreparations(result)
-//                }
-
-                loadingLD.value = false
-                Log.d("showvolley", response.toString())
-
-            },
-            {
-                loadingErrorLD.value = true
-                loadingLD.value = false
-                Log.d("showvolley", it.toString())
-            }
-        ){
-            override fun getParams(): MutableMap<String, String> {
-                val params = HashMap<String, String>()
-//                Log.d("AmbilParam", "Dapat")
-                params["id"] = id
-                return params
-            }
-        }
-        stringRequest.tag = TAG
-        queue?.add(stringRequest)*/
-//        return preparationsLD.value.toString()
     }
 
     fun refreshPrep(){

@@ -88,7 +88,6 @@ fun loadWithPicasso(imageView2: ImageView, imageUrl: String? ) {
         .error(R.drawable.ic_baseline_error_24)
         .into(imageView2, object: Callback {
             override fun onSuccess() {
-//                progressBar.visibility = View.GONE
             }
 
             override fun onError(e: Exception?) {
@@ -96,5 +95,4 @@ fun loadWithPicasso(imageView2: ImageView, imageUrl: String? ) {
             }
 
         })
-//    Picasso.get().load(imageUrl).into(imageView2)
 }

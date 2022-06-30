@@ -54,9 +54,6 @@ interface FoodRestaurantDao {
     @Query("SELECT * FROM myrecipes WHERE recipe_id = :id")
     suspend fun selectMyRecipes(id:Int):MyRecipes
 
-//    @Query("SELECT recipe_id FROM myrecipes WHERE name = :name AND poster = :poster")
-//    suspend fun selectIDMyRecipe(name:String, poster: String):MyRecipes
-
     @Query("UPDATE myrecipes SET name=:name, category=:category, poster=:poster WHERE recipe_id=:uuid")
     suspend fun updateMyRecipe(name:String, category:String, poster:String, uuid: Int)
 

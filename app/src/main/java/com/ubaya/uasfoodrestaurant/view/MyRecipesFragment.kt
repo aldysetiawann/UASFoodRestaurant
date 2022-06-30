@@ -52,8 +52,6 @@ class MyRecipesFragment : Fragment() {
 
         observeViewModel()
 
-//        txtDessert.visibility = View.GONE
-//        recViewDessert.visibility = View.GONE
     }
 
     fun observeViewModel(){
