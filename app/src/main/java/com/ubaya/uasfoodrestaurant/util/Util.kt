@@ -82,7 +82,7 @@ fun ImageView.loadImage(url:String, progressBar: ProgressBar){
 @BindingAdapter("loadWithPicasso")
 fun loadWithPicasso(imageView2: ImageView, imageUrl: String? ) {
     Picasso.get()
-        .load(imageUrl)
+        .load("https://cms-revamp.daihatsu.co.id/uploads/tipsandtrick/25-makanan-khas-palembang-1611581901437.jpeg")
         .resize(400,400)
         .centerCrop()
         .error(R.drawable.ic_baseline_error_24)
